@@ -1,0 +1,8 @@
+services:
+  easternmind:
+    container_name: easternmind
+    build: .
+    volumes:
+      - ./easternmind/db.sqlite3:/easternmind/easternmind/db.sqlite3
+    ports:
+      - "8000:8000"

@@ -1,0 +1,41 @@
+{% extends "_base.html" %}
+{% load pictures %}
+{% load static %}
+{% load compress %}
+
+{% block content %}
+    <div id="main">
+        <div id="main-left">
+            <h1>Eastern Mind</h1>
+            <p>Some amatuer photography I've done over the years</p>
+            <p id="footer">© 2025 braddy peralta</p>
+        </div>
+
+        <div class="main-right">
+            <p id="info">(click on any image to expand)</p>
+
+            <div class="container relative header-photo" onclick="openPic('{{ header_pic.image.url }}', '{{ header_pic.title }}', '{{ header_pic.get_format_display }}', '{{ header_pic.date|date:"F d, Y" }}')">
+                {% picture header_pic.image img_alt=header_pic.title img_loading="lazy" m=7 l=7 %}
+                <h2>Latest:<br><span>{{ header_pic.title }}</span></h2>
+            </div>
+            <div class="gallery">
+                {% for photo in photos %}
+                    <div class="pic">
+                        <div onclick="openPic('{{ photo.image.url }}', '{{ photo.title }}', '{{ photo.get_format_display }}', '{{ photo.date|date:"F d, Y" }}')">
+                            {% picture photo.image img_alt=photo.title img_loading="lazy" m=3 l=3 %}
+                        </div>
+                        <h3>{{ photo.title }}</h3>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div id="preview_screen" class="hidden" onclick="closePreview()">
+        <div id="pic_large"></div>
+    </div>
+
+    {% compress js %}
+    <script src="{% static 'js/main.js' %}"></script>
+    {% endcompress %}
+{% endblock content %}
