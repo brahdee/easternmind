@@ -1,4 +1,11 @@
 services:
+  memcached:
+    image: memcached
+    ports:
+      - "11211:11211"
+    entrypoint:
+      - memcached
+      - -m 64
   easternmind:
     container_name: easternmind
     build: .
@@ -6,3 +13,5 @@ services:
       - ./easternmind/db.sqlite3:/easternmind/easternmind/db.sqlite3
     ports:
       - "8000:8000"
+    links:
+      - memcached

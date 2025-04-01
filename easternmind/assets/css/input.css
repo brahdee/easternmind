@@ -5,184 +5,44 @@ html, body {
 }
 
 @layer base {
+  div#titlebar {
+    @apply bg-black flex flex-row font-extrabold font-mono h-16 z-10 opacity-80 text-base md:text-lg;
+    box-shadow: 0 0 5px 0px black;
+  }
+
+  div#titlebar h1 {
+    @apply ml-3 mr-auto p-5;
+  }
+
+  div#titlebar h2 {
+    @apply mr-3 ml-auto p-5;
+  }
+
+  div.pic p.info {
+    @apply absolute text-amber-50 opacity-70 p-5 font-mono font-extralight z-0 text-xs md:text-base;
+  }
+
   div#main {
-    @apply container flex flex-col md:flex-row mt-20 mb-auto;
+    @apply container flex flex-col max-w-full;
   }
 
-  div#main-left {
-    @apply text-center md:text-left;
+  div#main .pic {
+    @apply w-full h-auto -z-20;
   }
 
-  div#main h1 {
-    @apply md:pr-20 text-5xl md:text-9xl font-serif font-thin text-white mb-5 md:mb-10 z-10;
+  div#footer {
+    @apply h-40 w-max flex flex-col justify-center items-center m-auto font-mono;
   }
 
-  div#main #footer {
-    @apply text-sm font-sans font-medium text-gray-400 mb-5;
+  div#footer-inner {
+    @apply flex flex-row my-5;
   }
 
-  div#main button {
-    @apply ease-in duration-75 text-white text-center font-extralight text-5xl p-10;
+  div#footer-inner a {
+    @apply mx-10 decoration-2 underline underline-offset-2 cursor-pointer decoration-gray-600;
   }
 
-  div#main button:hover {
-    @apply border-solid border-r-4 border-gray-50;
-  }
-
-  div#main button:active {
-    @apply bg-neutral-950;
-  }
-
-  #main-inner {
-    @apply mt-10;
-  }
-
-  #back svg {
-    @apply text-6xl tracking-tighter -ml-8 -mr-2 mt-0 transition duration-200 fill-gray-700 stroke-gray-700 hover:fill-white hover:stroke-white cursor-pointer;
-  }
-
-  #section-header {
-    @apply m-8 text-4xl md:text-3xl font-serif text-center;
-  }
-
-  #info {
-    @apply text-gray-500 text-center mb-5;
-  }
-
-  .header-photo {
-    @apply cursor-pointer m-auto;
-  }
-
-  .header-photo h2, .header-photo h3 {
-    @apply absolute left-6 font-sans;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .header-photo h2 {
-    @apply top-4 text-xl font-extralight italic opacity-80;
-  }
-
-  .header-photo h2 span {
-    @apply text-6xl font-bold not-italic opacity-100;
-  }
-
-  .header-photo h3 {
-    @apply bottom-4 text-2xl font-light;
-  }
-
-  .header-photo h3 span {
-    @apply font-bold;
-  }
-
-  .header-photo img {
-    @apply mx-auto sm:rounded-md text-center align-middle;
-  }
-
-  .gallery {
-    @apply grid p-10 h-auto whitespace-nowrap gap-4;
-    grid-template-columns: repeat(auto-fill, minmax(300px, max-content));
-  }
-
-  .pic {
-    @apply mb-4 align-middle whitespace-nowrap;
-  }
-
-  .pic picture {
-    @apply cursor-pointer;
-  }
-
-  .pic picture img {
-    @apply rounded-md transition duration-300 hover:scale-105;
-  }
-
-  #bar {
-    @apply bg-black/85 absolute sm:fixed top-0 w-screen z-10 backdrop-blur-md;
-    transition: top 0.3s ease-in-out;
-  }
-
-  .barhide {
-    @apply -translate-y-full;
-  }
-
-  .pic h3, .pic p {
-    @apply text-center whitespace-nowrap;
-  }
-
-  .pic h3 {
-    @apply font-bold text-xl mt-2 mb-0 sm:opacity-75 whitespace-nowrap;
-  }
-
-  .pic p span {
-    @apply mt-0 font-bold italic opacity-80 whitespace-nowrap;
-  }
-
-  #preview_screen {
-    @apply z-20 fixed left-0 right-0 top-0 bottom-0 w-screen h-screen bg-black/85 backdrop-blur-md overflow-y-auto;
-  }
-
-  #pic_large {
-    @apply inline-block text-center align-middle cursor-pointer;
-  }
-
-  #pic_large img {
-    @apply align-middle;
-  }
-
-  #pic_large h1, #pic_large h2, #pic_large h3 {
-    @apply w-[80%] mx-auto;
-  }
-
-  #pic_large h1 {
-    @apply text-5xl font-extrabold mt-10 mb-3;
-  }
-
-  #pic_large h2 {
-    @apply text-xl mb-2 mx-auto;
-  }
-
-  #pic_large h3 {
-    @apply text-lg font-thin mx-auto mb-10;
-  }
-
-  #pic_large h3 span {
-    @apply font-bold;
-  }
-
-  #pic_large p {
-    @apply opacity-50 mb-10;
-  }
-
-  #projects div {
-    @apply flex items-center justify-center text-center;
-  }
-
-  #projects img {
-    @apply w-8 h-auto mr-3;
-    image-rendering: pixelated;
-  }
-
-  #about div {
-    @apply m-auto text-center h-auto w-4/5 text-wrap break-words;
-  }
-
-  #about div p {
-    @apply mb-10 text-xl;
-  }
-
-  #about #contact-row {
-    @apply flex flex-col sm:flex-row gap-3 mb-10;
-  }
-
-  #about div a {
-    @apply font-medium sm:font-normal w-48 h-20 text-xl flex items-center justify-center mx-auto rounded-lg py-1 pl-2 pr-3 transition ease-in duration-200 sm:opacity-80;
-  }
-
-  #about div a:hover {
-    @apply opacity-100 bg-gray-800;
-    box-shadow: 0 0 10px rgb(73, 90, 111);
-  }
-
-  #about div a svg {
-    @apply w-14 h-14 mr-2;
+  div#footer-inner p {
+    @apply cursor-default;
   }
 }

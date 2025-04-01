@@ -10,7 +10,6 @@ RUN apt-get update \
 
 WORKDIR /easternmind
 COPY poetry.lock pyproject.toml ./
-# COPY .git ./.git
 RUN poetry config virtualenvs.create false
 RUN poetry check && poetry install --no-interaction --no-cache
 

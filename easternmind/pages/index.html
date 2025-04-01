@@ -4,35 +4,31 @@
 {% load compress %}
 
 {% block content %}
-    <div id="main">
-        <div id="main-left">
-            <h1>Eastern Mind</h1>
-            <p>Some amatuer photography I've done over the years</p>
-            <p id="footer">© 2025 braddy peralta</p>
-        </div>
-
-        <div class="main-right">
-            <p id="info">(click on any image to expand)</p>
-
-            <div class="container relative header-photo" onclick="openPic('{{ header_pic.image.url }}', '{{ header_pic.title }}', '{{ header_pic.get_format_display }}', '{{ header_pic.date|date:"F d, Y" }}')">
-                {% picture header_pic.image img_alt=header_pic.title img_loading="lazy" m=7 l=7 %}
-                <h2>Latest:<br><span>{{ header_pic.title }}</span></h2>
-            </div>
-            <div class="gallery">
-                {% for photo in photos %}
-                    <div class="pic">
-                        <div onclick="openPic('{{ photo.image.url }}', '{{ photo.title }}', '{{ photo.get_format_display }}', '{{ photo.date|date:"F d, Y" }}')">
-                            {% picture photo.image img_alt=photo.title img_loading="lazy" m=3 l=3 %}
-                        </div>
-                        <h3>{{ photo.title }}</h3>
-                    </div>
-                {% endfor %}
-            </div>
+    <div class="sticky top-0 backdrop-blur-3xl">
+        <div id="titlebar">
+            <h1>Braddy Peralta</h1>
+            <h2>photography</h2>
         </div>
     </div>
 
-    <div id="preview_screen" class="hidden" onclick="closePreview()">
-        <div id="pic_large"></div>
+    <div id="main">
+        {% for photo in photos %}
+            <div class="pic">
+                <p class="info">{{ photo.title }}</p>
+                <p class="info mt-7!">// {{ photo.date }}</p>
+                {% picture photo.image img_alt=photo.title %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <div id="footer">
+        <h3>taken with portra 400 & 800</h3>
+        <div id="footer-inner">
+            <a href="https://peralta.sh">me</a>
+            <p>/</p>
+            <a href="https://github.com/brahdee/easternmind">github</a>
+        </div>
+        <h3 class="text-gray-400 text-sm">(c) 2024-2025</h3>
     </div>
 
     {% compress js %}
