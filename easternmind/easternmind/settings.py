@@ -1,15 +1,13 @@
 from pathlib import Path
 import configparser
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 config = configparser.RawConfigParser()
 config.read(BASE_DIR / "config.ini")
 
 SECRET_KEY = config.get("django", "secret")
-
-DEBUG = True  # set to False for prod
+DEBUG = config.getboolean("django", "debug")
 
 ALLOWED_HOSTS = ["*"]
 
