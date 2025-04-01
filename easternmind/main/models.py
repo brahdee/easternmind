@@ -10,6 +10,7 @@ class Image(models.Model):
     image = PictureField(
         aspect_ratios=[None], height_field="height_field", width_field="width_field"
     )
+    format = models.CharField(max_length=10, null=True, blank=True)
     title = models.CharField(max_length=50)
     description = models.CharField(max_length=150, null=True, blank=True)
     date = models.DateTimeField()
