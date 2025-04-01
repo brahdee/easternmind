@@ -11,6 +11,7 @@ class Image(models.Model):
         aspect_ratios=[None], height_field="height_field", width_field="width_field"
     )
     title = models.CharField(max_length=50)
+    description = models.CharField(max_length=150, null=True, blank=True)
     date = models.DateTimeField()
     id = models.UUIDField(
         default=uuid.uuid4, primary_key=True, editable=False, unique=True
