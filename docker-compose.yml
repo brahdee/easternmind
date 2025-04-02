@@ -2,7 +2,7 @@ services:
   memcached:
     image: memcached
     ports:
-      - "11211:11211"
+      - 11211:11211
     entrypoint:
       - memcached
       - -m 64
@@ -13,7 +13,18 @@ services:
       - ./easternmind/config.ini:/easternmind/easternmind/config.ini
       - ./easternmind/db.sqlite3:/easternmind/easternmind/db.sqlite3
       - ./easternmind/media:/easternmind/easternmind/media
-    ports:
-      - "8000:8000"
+    expose:
+      - 8000
     links:
       - memcached
+    depends_on:
+      - memcached
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    depends_on:
+      - easternmind
+    volumes:
+      - ./easternmind/media:/web/media
+  

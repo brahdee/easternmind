@@ -18,4 +18,4 @@ COPY . .
 EXPOSE 8000
 WORKDIR /easternmind/easternmind
 RUN poetry run python manage.py migrate --noinput
-CMD ["gunicorn"  , "-b", "0.0.0.0:8000", "easternmind.wsgi"]
+CMD ["gunicorn", "-b", "0.0.0.0:8000", "easternmind.wsgi"]

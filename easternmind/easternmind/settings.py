@@ -66,6 +66,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "easternmind.wsgi.application"
 
+COMPRESS_ENABLED = False
+
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
