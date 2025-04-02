@@ -10,9 +10,9 @@ services:
     container_name: easternmind
     build: .
     volumes:
-      - ./easternmind/config.ini:/home/easternmind/easternmind/config.ini
-      - ./easternmind/db.sqlite3:/home/easternmind/easternmind/db.sqlite3
-      - ./easternmind/media:/home/easternmind/easternmind/media
+      - ./easternmind/config.ini:/easternmind/easternmind/config.ini
+      - ./easternmind/db.sqlite3:/easternmind/easternmind/db.sqlite3
+      - ./easternmind/media:/easternmind/easternmind/media
     ports:
       - "8000:8000"
     links:
