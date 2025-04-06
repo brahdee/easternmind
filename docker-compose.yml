@@ -20,11 +20,19 @@ services:
     depends_on:
       - memcached
   nginx:
-    build: ./nginx
+    image: nginx:latest
+    restart: always
     ports:
       - 80:80
-    depends_on:
-      - easternmind
+      - 443:443
     volumes:
-      - ./easternmind/media:/web/media
+      - ./nginx:/etc/nginx/conf.d
+      - ./easternmind/media/:/web/media/
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
   

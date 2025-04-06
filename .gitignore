@@ -8,6 +8,7 @@ db.sqlite3
 static
 CACHE
 media
+certbot
 
 .venv
 
