@@ -1,9 +1,7 @@
 # Eastern Mind
-A photo gallery website made using Django + Tailwind CSS.
+A simple photo gallery website made using Django, SQLite, and Tailwind CSS.
 
-A live demo is not currently available, but photography of my own is included so that it can be tested locally:
-
-(make sure to create a db.sqlite3 and config.ini file in the `easternmind` directory)
+### A live version can be viewed [here](https://photos.peralta.sh)!
 
 ## Running manually:
 `cd easternmind`
