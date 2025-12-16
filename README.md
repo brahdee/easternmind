@@ -1,14 +1,10 @@
-# Eastern Mind
-A simple photo gallery website made using Django, SQLite, and Tailwind CSS.
+# photos.peralta.sh | `easternmind`
+A simple Flask image gallery.
 
-### A live version can be viewed [here](https://photos.peralta.sh)!
+Images (.jpg) are stored in `static/images` and displayed as a grid in the `index.html` template.
 
-## Running manually:
-`cd easternmind`
+The name "easternmind" comes from the original domain of the gallery, easternmind.nyc; a live version of this website is located at https://photos.peralta.sh
 
-`poetry run python3 manage.py runserver`
+---
 
-## Running with docker:
-`docker-compose build`
-
-`docker-compose up`
+*This website has been redesigned to be more simpler, for the old version that used Django and included an nginx docker setup, view the [legacy branch](https://github.com/brahdee/easternmind/tree/legacy).*

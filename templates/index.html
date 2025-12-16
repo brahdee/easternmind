@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>peralta.sh - photography</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="menu-container">
+            <div id="menu">
+                <p><span>braddy peralta |</span> photography</p>
+                <button id="gallery-btn" class="active" onclick="openTab('gallery')">gallery</button>
+                <button id="info-btn" onclick="openTab('info')">information</button>
+            </div>
+        </div>
+        <div id="gallery" class="shown">
+            <div id="gallery-grid">
+                {% for photo in photos %}
+                <img src="{{ url_for('static',filename=photo) }}" onclick="this.requestFullscreen()" \>
+                {% endfor %}
+            </div>
+            <p id="c">(c) braddy peralta <span>2025</span></p>
+        </div>
+        <div id="info" class="hidden">
+            <div>
+                <div>
+                    <p class="info-subheading">camera gear</p>
+                    <p><span>&bull;</span> Fujifilm XT-5 <span>w/</span> 16-80mm f/4 lens <span>(digital)</span></p>
+                    <p><span>&bull;</span> Pentax K1000 <span>w/</span> 50mm lens <span>(film)</span></p>
+                </div>
+                <hr>
+                <div class="bio">
+                    <p>Hello, I'm a hobbyist photographer from NYC.<br><br>
+                    This website was <a href="https://github.com/brahdee/easternmind">made from scratch</a> & photos are uploaded in no particular order.<br><br>
+                    If you want to reach me for anything, you can<br><a href="mailto:braddy@peralta.sh">email me</a>.</p>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="{{ url_for('static',filename='js/main.js') }}"></script>
+</html>

@@ -1,3 +1,0 @@
-[django]
-secret = django secret
-debug = true
