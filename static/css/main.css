@@ -1,0 +1,196 @@
+html, body {
+    font-family: Georgia, serif;
+    background-color: rgb(16, 16, 17);
+    color: white;
+    margin: 0;
+}
+
+#menu-container {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+    box-shadow: 0 0 10px rgb(16, 16, 16);
+}
+
+#menu {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+#menu p {
+    margin-right: 30px;
+}
+
+#menu span {
+    color: rgb(166, 166, 166);
+}
+
+#menu button {
+    width: 180px;
+    background: none;
+    margin: 12px;
+    border: 1px solid rgb(151, 151, 151);
+    color: white;
+    padding: 7px;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease, border 0.2s ease-out;
+}
+
+#menu button.active {
+    border: 1px solid white;
+    background-color: white;
+    color: black;
+}
+
+#menu button:hover {
+    border: 1px solid white;
+}
+
+#gallery {
+    width: 98%;
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 40px;
+    animation: fadein 1s;
+}
+
+#gallery-grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 15px;
+}
+
+#gallery-grid img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 50px black;
+    border: 0.5px solid transparent;
+    cursor: pointer;
+    transition: border 0.5s ease;
+}
+
+#gallery-grid img:hover {
+    border: 0.5px solid rgb(109, 109, 109);
+}
+
+#c {
+    font-family: system-ui, -apple-system, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    color: rgb(96, 96, 96);
+    text-align: center;
+    margin-top: 35px;
+}
+
+:where(:fullscreen) {
+    border: none !important;
+}
+
+#info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 95vh;
+}
+
+#info > div {
+    width: 400px;
+    border: 1px solid rgb(32, 32, 32);
+    box-shadow: 0 0 35px rgb(12, 12, 12);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    padding-bottom: 35px;
+    padding-top: 30px;
+    gap: 20px;
+    animation: fadein 0.5s;
+}
+
+#info > div hr {
+    width: 85%;
+    border: 1px solid #202020;
+}
+
+#info > div > div {
+    width: 85%;
+}
+
+#info > div p {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 30px;
+    color: rgb(220, 220, 220);
+}
+
+#info > div div.bio p {
+    font-size: 0.9rem;
+    text-align: center;
+    line-height: 20px;
+}
+
+#info > div p span {
+    color: rgb(86, 86, 86);
+}
+
+#info > div p.info-subheading {
+    font-size: 1.1rem;
+    color: rgb(237, 237, 237);
+    font-style: italic;
+}
+
+#info a {
+    color: rgb(126, 171, 185);
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 800px) {
+    #menu p {
+        margin-right: 10px;
+        width: 110px;
+    }
+
+    #menu button {
+        width: auto;
+    }
+
+    #gallery {
+        width: auto;
+    }
+    
+    #gallery-grid {
+        grid-template-columns: none;
+        gap: 0;
+    }
+
+    #info {
+        height: 100vh;
+    }
+
+    #info > div {
+        box-shadow: none;
+        border: none;
+        padding: none;
+    }
+}
+
+@keyframes fadein {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

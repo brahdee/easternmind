@@ -1,14 +1,7 @@
 .DS_STORE
-
-*.log
-*.pot
-*.pyc
 __pycache__
-db.sqlite3
-static
-CACHE
-media
-certbot
+
+static/images/*
 
 .venv
 
@@ -18,5 +11,3 @@ certbot
 !.vscode/launch.json
 !.vscode/extensions.json
 .history
-
-config.ini
