@@ -5,19 +5,34 @@
         <title>peralta.sh - photography</title>
         <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="{{ url_for('static',filename='js/main.js') }}"></script>
     </head>
     <body>
         <div id="menu-container">
-            <div id="menu">
-                <p><span>braddy peralta |</span> photography</p>
-                <button id="gallery-btn" class="active" onclick="openTab('gallery')">gallery</button>
-                <button id="info-btn" onclick="openTab('info')">information</button>
+            <div id="menu" class="transparent">
+                <p><span>braddy peralta | </span>photography</p>
+                <div>
+                    <button id="gallery-btn" class="active" onclick="openTab('gallery')">gallery</button>
+                    <button id="info-btn" onclick="openTab('info')">information</button>
+                </div>
             </div>
         </div>
         <div id="gallery" class="shown">
+            <div id="header-pic">
+                <img src="{{ url_for('static',filename=mainphoto) }}">
+                <div id="main-text">
+                    <div id="main-text-container">
+                        <h2><span>⌄</span> all works <span>⌄</span></h2>
+                        <h4>people & places</h4>
+                    </div>
+                </div>
+            </div>
             <div id="gallery-grid">
                 {% for photo in photos %}
-                <img src="{{ url_for('static',filename=photo) }}" onclick="this.requestFullscreen()" \>
+                <div class="entry temp-hidden">
+                    <img src="{{ url_for('static',filename=photo) }}" onclick="this.requestFullscreen()" \>
+                </div>
                 {% endfor %}
             </div>
             <p id="c">(c) braddy peralta <span>2025</span></p>
@@ -31,12 +46,11 @@
                 </div>
                 <hr>
                 <div class="bio">
-                    <p>Hello, I'm a hobbyist photographer from NYC.<br><br>
+                    <p>I'm a hobbyist photographer from NYC.<br><br>
                     This website was <a href="https://github.com/brahdee/easternmind">made from scratch</a> & photos are uploaded in no particular order.<br><br>
                     If you want to reach me for anything, you can<br><a href="mailto:braddy@peralta.sh">email me</a>.</p>
                 </div>
             </div>
         </div>
     </body>
-    <script src="{{ url_for('static',filename='js/main.js') }}"></script>
 </html>

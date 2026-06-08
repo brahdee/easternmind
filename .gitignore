@@ -1,7 +1,8 @@
 .DS_STORE
 __pycache__
 
-static/images/*
+static/images/optimized/*
+original/*
 
 .venv
 
