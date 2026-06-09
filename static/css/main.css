@@ -29,7 +29,7 @@ html, body {
 }
 
 #menu p {
-    margin-right: 30px;
+    margin-left: 20px;
     mix-blend-mode: difference;
 }
 
@@ -46,6 +46,7 @@ html, body {
     padding: 7px;
     cursor: pointer;
     transition: color 0.3s ease, background-color 0.3s ease, border 0.2s ease-out;
+    margin-left: 0;
 }
 
 #menu button.active {
@@ -105,6 +106,7 @@ html, body {
     font-style: italic;
     font-size: 10vw;
     margin-bottom: 0;
+    margin-top: 0;
 }
 
 #main-text h2 span {

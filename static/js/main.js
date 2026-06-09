@@ -28,7 +28,7 @@ $(window).scroll(function() {
   var $w = $(window);
 
   $('#main-text').each(function() {
-    $(this).css('opacity', (1 - $w.scrollTop() / 200));
+    $(this).css('opacity', (1 - $w.scrollTop() / 300));
     $(this).css('transform', `translate(-50%, -${(50 + ($w.scrollTop() / 100))}%)`);
   });
 });
